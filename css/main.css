@@ -1,268 +1,334 @@
-/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+::selection {color:#fff; background: rgba(106, 197, 183, 1);}
+::-moz-selection {color:#fff; background: rgba(106, 197, 183, 1);}
+*{box-sizing: border-box;}
+body {
+	width: 100%;
+	margin: auto;
+    color: #333;
+    font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+}
 
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-    color: #222;
+.brand{
+    background: url(../img/angles-in-atrium.jpg) no-repeat;
+    background-size: cover;
+    height: 700px;
+    position: relative;
+    z-index: -2;
+}
+.brand .mark {
+    content: "";
+    display: block;
+    font-size: 3em;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    width: 100%;
+    margin-top: 300px;
+}
+.brand .mark:before {
+    content: "";
+    border: solid 8px #333;
+    padding: 28px 250px;
+    position: absolute;
+    top: calc(50% - 52px);
+    left: calc(50% - 258px);
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
+}
+.navigation .menu {
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+/*    border-bottom: 1px solid #ddd;*/
+}
+.menu,
+.menu .item {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.menu .item {
+    display: inline-block;
+}
+.navigation .menu .link {
+    display: inline-block;
+    text-decoration: none;
+    color: #888;
+    font-size: 1.5em;
+    line-height: 3;
+    margin: 0 20px;
+    position: relative;
+}
+.navigation .menu .link:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 12px;
+    border-bottom: 2px solid #fff;
+    z-index: -1;
+    -webkit-transition: all 200ms ease;
+       -moz-transition: all 200ms ease;
+         -o-transition: all 200ms ease;
+            transition: all 200ms ease;
+}
+.navigation .menu .link:hover:after {
+    border-bottom: 2px solid #888;
+}
+.navigation .menu .link.active:after {
+    border-bottom: 2px solid rgba(106, 197, 183, 1);
+}
+.navigation .menu .link.active {
+    color: rgba(106, 197, 183, 1);
+}
+main.page {
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+}
+.main {
+    width: 75%;
+    float: left;
+    padding: 0 50px 50px 0;
+    overflow: hidden;
+}
+.event.item {
+    width: 100%;
+/*    width: 33.3333333333333%;*/
+/*    margin: 0 8% 0 0;*/
+    float: left;
+    margin: 10px 0;
+    overflow: auto;
+}
+.event.item:hover .attach img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+.event .content {
+    width: 65%;
+    float: right;
+    padding: 0 0 0 30px;
+    margin: -10px 0 0 0;
+}
+.event .attach {
+    height: 300px;
+    width: 35%;
+    float: left;
+    margin: 0 0 20px;
+    overflow: hidden;
+}
+.event .attach img {
+/*    max-width: 100%;*/
+/*    max-height: 100%;*/
+    width: 100%;
+/*    padding: 0 20px 0 0;*/
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(80%);
+    -webkit-transition: all 600ms ease;
+       -moz-transition: all 600ms ease;
+         -o-transition: all 600ms ease;
+            transition: all 600ms ease;
+}
+.event h2.heading {
+    color: #333;
+    font-weight: 800;
+    font-size: 3.125em;
+    line-height: 1;
+    margin: 0 0 0 -2px;
+}
+.event h2.heading:hover {
+}
+.event .meta p.date,
+.event .meta p.location {
+    font-weight: 400;
     font-size: 1em;
     line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-/*
- * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
- */
-
-audio,
-canvas,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
     margin: 0;
-    padding: 0;
+    font-family: "Crete Round";
+}
+.event .meta p.date {
+    font-size: 1.25em;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-    resize: vertical;
+.event .meta p a.map.link {
+    color: rgba(106, 197, 183, 1);
 }
-
-/* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
-
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+.event .copy p {
+    font-weight: 400;
+    font-size: 1.125em;
+    line-height: 1.45;
+    margin: 5px 0 15px 0;
 }
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers: h5bp.com/u
- */
-
-.hidden {
-    display: none !important;
-    visibility: hidden;
+.event .footer {
 }
-
-/*
- * Hide only visually, but have it available for screen readers: h5bp.com/v
- */
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+.event nav.categories {
+    margin: 0 0 0 -3px;
 }
-
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+.event nav.categories .category {
+    background-color: rgba(106, 197, 183, 1);
+    border: 2px solid rgba(106, 197, 183, 1);
+    color: #fff;
+    font-size: 0.75em;
+    line-height: 1;
+    float: left;
+    margin: 3px;
+    padding: 4px 8px;
+    border-radius: 2px;
+/*    font-family: "Crete Round";*/
 }
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-    visibility: hidden;
+.event nav.tags {
+    clear: both;
+    margin: 0 0 0 -3px;
 }
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+.event nav.tags .tag {
+    background-color: #aaa;
+    border: 2px solid #aaa;
+    color: #fff;
+    font-size: 0.75em;
+    line-height: 1;
+    float: left;
+    margin: 3px;
+    padding: 4px 8px;
+    border-radius: 2px;
+/*    font-family: "Crete Round";*/
 }
-
-.clearfix:after {
+nav.menus.paging {
+    margin: 0 0 0 35%;
+    padding: 0 0 0 30px;
     clear: both;
 }
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+.menu.paginate .item a {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+    border: 2px solid #aaa;
+    color: #aaa;
+    padding: 5px 8px;
+    margin: 3px;
+    border-radius: 2px;
 }
-
-@media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
+.menu.paginate .item a.active {
+    border: 2px solid rgba(106, 197, 183, 1);
+    color: rgba(106, 197, 183, 1);
 }
+.sub {
+    float: right;
+    width: 25%;
+}
+.formats.menus.segment {
+    
+}
+.subscribe.segment {
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request: h5bp.com/r
-   ========================================================================== */
+}
+.email {
 
-@media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    thead {
-        display: table-header-group; /* h5bp.com/t */
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+}
+.calendar.segment {
+    max-width: 100%;
+}
+table.mini.cal.ui {
+    width: 100%;
+    table-layout: fixed;
+    color: #333;
+}
+table.mini.cal.ui caption {
+    width: 100%;
+    position: relative;
+    font-size: 1.25em;
+    line-height: 40px;
+/*    font-weight: 800;*/
+    background-color: rgba(106, 197, 183, 1);
+/*    background-color: #333;*/
+    color: #fff;
+}
+nav.months.menu.ui a {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    color: #fff;
+    padding: 0 10px;
+}
+nav.months.menu.ui a.prev {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    left: 0;
+    top: 0;
+}
+nav.months.menu.ui a.next {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    right: 0;
+    top: 0;
+}
+tr.days.week {
+    height: 30px;
+/*    background-color: rgba(106, 197, 183, 1);*/
+}
+tr.days.week th {
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #fff;
+    color: #333;
+}
+.abbr-short {
+    display: none;
+}
+tr.week {
+    height: 50px;
+}
+tr.week:nth-child(even) {
+    background-color: #f5f5f5;
+}
+tr.week td {
+    position: relative;
+}
+td.events.day {
+    padding: 0 4px 0 0;
+}
+td span.date {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 0.75em;
+}
+a.event.link {
+    font-size: 0.75em;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: rgba(106, 197, 183, 1);
+    padding: 2px 4px;
+    margin: 6px 0 0 0;
+    border-radius: 2px;
+    color: #fff;
+    position: relative;
+    z-index: 5;
+}
+a.event.link:hover {
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);*/
+    white-space: normal;
+    -webkit-transform: scale(1.25);
+    transform:         scale(1.25);
+    -webkit-transition: all 200ms ease;
+       -moz-transition: all 200ms ease;
+         -o-transition: all 200ms ease;
+            transition: all 200ms ease;
+}
+.footer {
+    width: 100%;
+    clear: both;
 }
