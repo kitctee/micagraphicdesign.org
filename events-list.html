@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="css/skeleton.css">-->
         <link rel="stylesheet" href="css/helpers.css">
         <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Crete+Round:400,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body class="layout event list">
@@ -52,12 +54,15 @@
                   <li class="item">
                     <a href="#" class="link" title="Opportunities">Opportunities</a>
                   </li>
+                  <li class="item">
+                    <a href="#" class="link" title="More" id="more">More ▾</a>
+                  </li>
                 </ul><!-- /.menu -->
               </nav>
               
               
               <nav class="utility menus">
-                <ul class="menu">
+                <ul class="menu" id="secNav">
                   <li class="item">
                     <a href="#News" class="link">News</a>
                   </li>
@@ -694,7 +699,7 @@
           </td>
           <td class="events day">
             <a class="link day" href="#">
-              <span class="date">18</span>
+              <span class="date hasEvent">18</span>
             </a>
             <a href="#" class="event link">Title of Event 18</a>
           </td>
@@ -830,6 +835,16 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#more').mouseenter(function(){
+                    $('#secNav').addClass('active');
+                });
+                $('#more').mouseleave(function(){
+                    $('#secNav').removeClass('active');
+                });
+            });
+        </script>
 
     </body>
 </html>
