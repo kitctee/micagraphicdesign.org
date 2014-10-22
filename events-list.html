@@ -54,9 +54,6 @@
                   <li class="item">
                     <a href="#" class="link" title="Opportunities">Opportunities</a>
                   </li>
-                  <li class="item">
-                    <a href="#" class="link" title="More" id="more">More ▾</a>
-                  </li>
                 </ul><!-- /.menu -->
               </nav>
               
@@ -837,12 +834,24 @@
         <script src="js/main.js"></script>
         <script>
             $(document).ready(function(){
-                $('#more').mouseenter(function(){
-                    $('#secNav').addClass('active');
-                });
-                $('#more').mouseleave(function(){
-                    $('#secNav').removeClass('active');
-                });
+//                $("nav.social.menus").detach().prependTo('.sub');
+//                $("form.form").detach().prependTo('.sub');
+                $("nav.formats.menus.segment ul.menu li.item").detach().prependTo('nav.tags.menus.segment ul.menu');
+                $(".archives.segment").detach().appendTo('nav.tags.menus.segment ul.menu');
+                $( "nav.social ul.menu li.item a.link" ).empty();
+//                $('#more').mouseenter(function(){
+//                    $('#secNav').addClass('active');
+//                });
+//                $('#more').mouseleave(function(){
+//                    $('#secNav').removeClass('active');
+//                });
+                
+
+//                var $more = $('<li class="item"><a class="link" id="more">More ▾</a></li>');
+//                $('ul.menu.level-1').append($more);
+//                $('#more').click(function(){
+//                    $('.menu').toggleClass('active');
+//                });
             });
         </script>
 

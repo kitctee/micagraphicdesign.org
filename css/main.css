@@ -1,3 +1,28 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+main, header, section, footer, aside, nav, article, figure {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:100%;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box; /* webkit */
+       -moz-box-sizing: border-box; /* firefox */
+            box-sizing: border-box; /* css3 */
+}
+
+/* HTML5 tags */
+main, header, section, footer, aside, nav, article, figure { display: block; }
+
 ::selection {color:#fff; background: rgba(106, 197, 183, 1);}
 ::-moz-selection {color:#fff; background: rgba(106, 197, 183, 1);}
 *{box-sizing: border-box;}
@@ -7,16 +32,29 @@ body {
     color: #333;
     font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 }
-
 a {
     text-decoration: none;
     color: inherit;
 }
-
+/*
+*[role="search"] {
+    background-color: lime;
+}
+*/
+/*
+    -webkit-transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25); 
+       -moz-transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25); 
+         -o-transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25); 
+            transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25);
+*/
+.masthead {
+    position: relative;
+    padding-top: 40px;
+}
 .brand{
     background: url(../img/angles-in-atrium.jpg) no-repeat;
     background-size: cover;
-    height: 700px;
+    height: 400px;
     position: relative;
     z-index: -2;
 }
@@ -30,7 +68,7 @@ a {
     text-transform: uppercase;
     display: inline-block;
     width: 100%;
-    margin-top: 300px;
+    margin-top: 150px;
 }
 .brand .mark:before {
     content: "";
@@ -42,52 +80,29 @@ a {
     background-color: rgb(255, 255, 255);
     z-index: -1;
 }
-.navigation .menu {
-    display: block;
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    border-bottom: 2px solid #ddd;
-    position: relative;
-    z-index: 1000;
-    background-color: #fff;
-}
 
+
+
+/*- - - - - - - - - - -
+navigation & utility menu
+*- - - - - - - - - - -*/
+.navigation .menu,
 .utility .menu {
     display: block;
     width: 100%;
     margin: auto;
     text-align: center;
+    position: relative;
+    z-index: 1000;
+    background-color: #fff;
+}
+.utility .menu {
     background-color: #333;
-/*    margin-top: -50px;*/
-    -webkit-transform: translateY(-52px);
-    transform:         translateY(-52px);
-    -webkit-transition: all 200ms ease-out;
-       -moz-transition: all 200ms ease-out;
-         -o-transition: all 200ms ease-out;
-            transition: all 200ms ease-out;
-}
-.utility .menu.active {
-/*    margin-top: 0;*/
-    -webkit-transform: translateY(0);
-    transform:         translateY(0);
-}
-
-/*
-.utility .menu:before {
-    content: "";
-    display: block;
     position: absolute;
-    top: 0;
     left: 0;
-    width: 60px;
-    height: 90px;
-    background-color: lime;
-    z-index: 111;
+    top: 0;
 }
-*/
-.menu,
-.menu .item {
+ul, li {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -112,52 +127,162 @@ a {
 .utility .menu .link {
     color: #fff;
     font-size: 1em;
-    line-height: 3;
+    line-height: 2.5;
     margin: 0 10px;
 }
-/*
-.navigation .menu .link:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 12px;
-    border-bottom: 2px solid #fff;
-    z-index: -1;
-    -webkit-transition: all 200ms ease;
-       -moz-transition: all 200ms ease;
-         -o-transition: all 200ms ease;
-            transition: all 200ms ease;
-}
-*/
-.navigation .menu .link:hover {
-    color: rgba(106, 197, 183, 1);
-}
-.navigation .menu .link:hover:after {
-/*    border-bottom: 2px solid #888;*/
-}
-.navigation .menu .link.active:after {
-/*    border-bottom: 2px solid rgba(106, 197, 183, 1);*/
-}
+.navigation .menu .link:hover,
 .navigation .menu .link.active {
     color: rgba(106, 197, 183, 1);
 }
+
+
+
+/*- - - - - - - - - - -
+main
+*- - - - - - - - - - -*/
 main.page {
-    width: 75em;
+    width: 100%;
+    padding: 0 100px;
     margin: auto;
     overflow: auto;
+    position: relative;
 }
 .main {
-    width: calc(100% - 300px);
+    width: calc(100% - 340px);
     float: left;
     margin: auto;
     padding: 0 50px 50px 0;
     overflow: hidden;
 }
+h1 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+ul.events.items.ui {
+    padding: 0;
+    margin: 0;
+}
+.lede {
+    width: 100%;
+/*    width: 75em;*/
+    margin: auto;
+    background-color: #333;
+    overflow: auto;
+    padding: 40px 100px;
+    display: table;
+    vertical-align: middle;
+}
+.lede .attach {
+    float: left;
+    color: #fff;
+    width: 50%;
+}
+.lede .content {
+    float: right;
+    color: #fff;
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.lede .content .header h2.heading {
+    font-weight: 700;
+    font-size: 3.125em;
+    line-height: 1;
+    margin: 0 0 0 -2px;
+}
+.lede .content .meta .date,
+.lede .content .meta .location {
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 0;
+    font-family: "Crete Round";
+}
+.lede .content .meta .date {
+    font-size: 1.25em;
+}
+/*
+    <div class="content">
+      <div class="copy">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos provident sunt dolore, laborum illum laboriosam laudantium, consequuntur necessitatibus veritatis impedit non rerum, dignissimos illo expedita quam amet totam fugit eveniet.
+        </p>
+      </div><!-- /.copy -->
+      <div class="footer">
+        <nav class="categories">
+          <a href="#" class="category">Lecture</a>
+          <a href="#" class="category">On Campus</a>
+        </nav>
+        <nav class="tags">
+          <a href="#" class="tag">Typography</a>
+        </nav>
+      </div> <!-
+*/
+
+section.events {
+    width: 100%;
+    padding: 0 100px;
+    margin: auto;
+/*    border-top: 4px solid rgba(106, 197, 183, 1);*/
+/*    border-bottom: 4px solid rgba(106, 197, 183, 1);*/
+}
+ul.events.items.ui {
+
+}
+.event.item.teaser {
+    width: 18.4%;
+    float: left;
+    margin: 10px 2% 0 0;
+    overflow: auto;
+}
+.event.item.teaser:last-child {
+    margin: 10px 0;
+}
+.event.item.teaser .attach {
+    height: auto;
+    width: 100%;
+    float: left;
+    margin: 0 0 10px;
+    overflow: hidden;
+    border: 8px solid #333;
+}
+.event.item.teaser .body {
+    margin: 0 0 20px;
+}
+h1.page.heading {
+    color: #333;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 1;
+    border: 4px solid #333;
+    padding: 3px 7px;
+    display: inline-block;
+}
+.event.item.teaser h2.heading {
+    color: #333;
+    font-weight: 700;
+    font-size: 1.5em;
+    line-height: 1;
+    margin: 0 0 0 -2px;
+}
+.event.item.teaser .meta p.date,
+.event.item.teaser .meta p.location {
+    font-size: 0.875em;
+    line-height: 1.6;
+}
+.event.item.teaser .copy {
+    display: none;
+}
+.lede .content .events .footer {
+    clear: both;
+    text-align: center;
+    border-top: 2px solid rgba(106, 197, 183, 1);
+    font-size: 1em;
+    line-height: 3;
+    color: rgba(106, 197, 183, 1);
+}
 .event.item {
     width: 100%;
-/*    width: 33.3333333333333%;*/
-/*    margin: 0 8% 0 0;*/
     float: left;
     margin: 10px 0;
     overflow: auto;
@@ -191,7 +316,7 @@ main.page {
 }
 .event h2.heading {
     color: #333;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 3.125em;
     line-height: 1;
     margin: 0 0 0 -2px;
@@ -250,32 +375,245 @@ main.page {
     margin: 3px;
     padding: 4px 8px;
     border-radius: 2px;
-/*    font-family: "Crete Round";*/
 }
 nav.menus.paging {
-    margin: 0 0 0 35%;
-    padding: 0 0 0 30px;
+    margin: 0;
+    padding: 0 0 0 0;
     clear: both;
 }
-.menu.paginate .item a {
-    font-size: 1em;
-    font-weight: 400;
-    line-height: 1;
-    border: 2px solid #aaa;
+.menu.paginate {
+    border: 4px solid #333;
+    display: inline-block;
     color: #aaa;
-    padding: 5px 8px;
-    margin: 3px;
-    border-radius: 2px;
+    line-height: 1;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 5px 0px;
+}
+.menu.paginate .item a {
+    margin: 0 8px;
 }
 .menu.paginate .item a.active {
-    border: 2px solid rgba(106, 197, 183, 1);
-    color: rgba(106, 197, 183, 1);
+    color: #333;
 }
+
+
+
+/*- - - - - - - - - - -
+sub (sidebar)
+*- - - - - - - - - - -*/
 .sub {
-    float: left;
+/*    background-color: #f5f5f5;*/
+/*    border: 2px solid #ddd;*/
+/*    padding: 20px;*/
+    float: right;
     width: 300px;
-/*    display: none;*/
+    margin: 78px 0 0 0;
 }
+.form {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    z-index: 9999;
+    background-color: #ddd;
+    overflow: auto;
+    margin: 0 0 30px;
+    width: 250px;
+}
+.form input {
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    line-height: 1.25;
+    padding: 10px 10px;
+    background-color: #fff;
+    background-color: #555;
+    width: 70%;
+    float: left;
+    color: #fff;
+}
+.form button.control {
+    width: 90%;
+    background-color: rgba(106, 197, 183, 1);
+/*    background-color: #555;*/
+    outline: none;
+    border: none;
+    font-size: 1em;
+    line-height: 1.25;
+    font-weight: 500;
+    padding: 10px 0;
+    color: #fff;
+/*    color: #aaa;*/
+    width: 30%;
+    float: right;
+}
+nav.social {
+    overflow: auto;
+    margin: 0 0 30px;
+}
+nav.social ul.menu {
+    position: absolute;
+    left: 100px;
+    top: 0;
+    overflow: auto;
+    width: auto;
+    z-index: 9999;
+}
+nav.social ul.menu li.item {
+    width: 20%;
+    width: 60px;
+    width: 40px;
+    height: 40px;
+    height: 40px;
+/*    background-color: rgba(106, 197, 183, 1);*/
+    overflow: hidden;
+    margin: 0;
+    float: left;
+    position: relative;
+    -webkit-transition: all 400ms ease;
+       -moz-transition: all 400ms ease;
+         -o-transition: all 400ms ease;
+            transition: all 400ms ease;
+}
+nav.social ul.menu li.item:hover {
+    background-color: rgb(82, 167, 155);
+}
+.item a[title="Twitter"]:before,
+.item a[title="Tumblr"]:before,
+.item a[title="Vimeo"]:before,
+.item a[title="Behance"]:before,
+.item a[title="Flickr"]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    background-size: 30px;
+    background-position: center;
+}
+.item a[title="Twitter"]:before {
+    background: url(../img/platform_tw.svg) no-repeat;
+}
+.item a[title="Tumblr"]:before {
+    background: url(../img/platform_fb.svg) no-repeat;
+}
+.item a[title="Vimeo"]:before {
+    background: url(../img/platform_vi.svg) no-repeat;
+}
+.item a[title="Behance"]:before {
+    background: url(../img/platform_yt.svg) no-repeat;
+}
+.item a[title="Flickr"]:before {
+    background: url(../img/platform_ig.svg) no-repeat;
+}
+
+
+/*
+
+nav.formats.menus.segment ul.menu li.item {
+    font-size: 1em;
+    line-height: 2;
+    padding: 3px 7px;
+    margin: 0 10px 30px 0;
+    background-color: rgba(106, 197, 183, 1);
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    float: left;
+}
+nav.formats.menus.segment ul.menu li.item a.link {
+}
+*/
+
+nav.tags.menus.segment h2.heading {
+    font-size: 2em;
+    margin: 0 0 5px 0;
+    color: rgba(106, 197, 183, 1);
+
+}
+nav.tags.menus.segment ul.menu {
+    
+}
+.archives.segment,
+nav.tags.menus.segment li.item {
+    width: 100%;
+    margin: 0 0 0 0;
+    font-size: 1.125em;
+    line-height: 2;
+    color: #999;
+}
+.archives.segment a.button.archive {
+}
+/*
+.archives.segment {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+}
+*/
+
+
+
+
+
+
+
+
+
+.subscribe {
+    clear: both;
+    background-color: rgba(106, 197, 183, 1);
+    margin: 0 0 30px;
+}
+.email h2 {
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+    padding: 3% 0;
+}
+.mc-field-group label {
+    display: none;
+}
+.mc-field-group input {
+    width: 90%;
+    margin: auto 5%;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    line-height: 1.25;
+    padding: 10px 10px;
+    background-color: #fff;
+}
+.email .button {
+    width: 90%;
+    margin: 3% 5% 5%;
+    background-color: rgba(106, 197, 183, 1);
+    background-color: rgb(82, 167, 155);
+    outline: none;
+    border: none;
+    font-size: 1em;
+    line-height: 1.25;
+    font-weight: 600;
+    padding: 10px 0;
+    color: #fff;
+}
+.subscribe .rss {
+    font-size: 0.875em;
+    line-height: 2.5;
+    text-align: center;
+    display: block;
+    border-top: 2px solid rgb(82, 167, 155);
+/*    background-color: rgb(82, 167, 155);*/
+    color: #fff;
+}
+
 .formats.menus.segment {
     
 }
@@ -288,8 +626,7 @@ nav.menus.paging {
 .calendar.segment {
     max-width: 100%;
     background-color: rgba(106, 197, 183, 1);
-/*    border: 8px solid #333;*/
-/*    height: 300px;*/
+    margin: 0 0 30px;
 }
 table.mini.cal.ui {
     width: 100%;
@@ -330,30 +667,27 @@ nav.months.menu.ui a.next {
     top: 0;
 }
 thead.days {
-    height: 20px;
+    height: 30px;
 }
 tr.days.week th {
     font-size: 0.75em;
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
-/*    color: #333;*/
+    vertical-align: middle;
 }
 .abbr-short {
     display: none;
 }
 tr.days.week {
     border-top: 2px solid rgb(82, 167, 155);
-    height: 36px;
+    height: 30px;
 }
 tr.week {
-/*    border-top: 2px solid rgb(82, 167, 155);*/
-    height: 36px;
-}
-tr.week:nth-child(even) {
-/*    background-color: rgba(255, 255, 255, 0.45);*/
+    height: 30px;
 }
 tr.week td {
     position: relative;
+    vertical-align: middle;
 }
 td.events.day {
 }
@@ -369,16 +703,15 @@ td span.date {
     position: relative;
     z-index: 1;
 }
+td span.date:hover:before,
 td span.date.hasEvent:before {
     content: "";
     position: absolute;
-    top: -5px;
-    left: 0;
-/*    right: auto;*/
-/*    bottom: auto;*/
+    top: -4px;
+    left: 2px;
     margin-left: calc(50% - 15px);
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.25);
     z-index: -1;
@@ -418,4 +751,204 @@ footer.footer {
     background-color: #333;
     color: #fff;
     overflow: auto;
+    padding: 20px 0;
 }
+footer {
+    text-align: center;
+}
+
+/*
+            <nav class="departments menus">
+            	<ul class="menu">
+            		<li class="item">
+            			<a class="link" href="http://www.mica.edu" title="MICA.edu">MICA.edu</a>
+            		</li>
+            		<li class="item">
+            			<a class="link" href="http://micadesign.org/" title="GD MFA">GD MFA</a>
+            		</li>
+            		<li class="item">
+            			<a class="link" href="http://micagraphicdesignpb.org/" title="post-bac">Post-Bac GD</a>
+            		</li>
+            	</ul>
+            </nav>
+            <p class="legal">&copy; Maryland Institute College of Art</p>*/
+
+
+article.h-entry.story {
+    width: 100%;
+    margin: auto;
+    padding: 0 270px 50px;
+    padding: 0 300px 50px;
+    position: relative;
+}
+article.h-entry.story figure.attach {
+/*    display: none;*/
+}
+article.h-entry.story .content .header h1 {
+    font-weight: 700;
+    font-size: 4.5em;
+    line-height: 1;
+}
+aside.profiles {
+    width: 270px;
+    position: absolute;
+    left: 0;
+}
+aside.profiles .profile.card {
+    overflow: auto;
+}
+aside.profiles figure.attach {
+    width: 20%;
+    height: auto;
+    float: left;
+    border: 4px solid #333;
+    margin: 0;
+}
+aside.profiles figure.attach img {
+    width: 100%;
+}
+aside.profiles .profile.card .content {
+    width: 80%;
+    float: right;
+    margin: 0;
+    padding: 0 20px 0 0;
+}
+aside.profiles .profile.card .content p.heading {
+    width: 100%;
+    background-color: #fff;
+/*    border: 4px solid #333;*/
+    border-left: none;
+    line-height: 46px;
+    line-height: 1;
+    margin: 0;
+    margin-top: -2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+aside.profiles .profile.card .content ul.link.list {
+    padding: 0 10px;
+    font-size: 0.875em;
+    color: #aaa;
+}
+aside.profiles .profile.card .content li.item a {
+}
+aside.profiles .profile.card .content li.item a i.icon.twitter {
+}
+aside.profiles .profile.card .content li.item a i.icon.instagram {
+}
+aside.profiles .profile.card .content li.item a i.icon.behance {
+}
+
+article.h-entry.story .content .body p {
+    font-weight: 400;
+    font-size: 1.3125em;
+    line-height: 1.5;
+    margin: 0 0 0.75em;
+}
+article.h-entry.story .content .body p strong {
+    font-weight: 700;
+    font-size: 1.35em;
+    line-height: 1.25;
+}
+article.h-entry.story .content .body p em {
+    font-style: italic;
+}
+aside.segment.gallery {
+    position: absolute;
+    right: 0;
+    width: 270px;
+}
+aside.segment.gallery ul.slides {
+    padding: 0 0 0 20px;
+}
+aside.segment.gallery ul.slides li.slide {
+}
+aside.segment.gallery ul.slides li.slide a {
+}
+aside.segment.gallery ul.slides li.slide a img {
+    width: 70%;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 10;
+    border: 4px solid #333;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+aside.segment.gallery ul.slides li.slide:nth-child(2) a img {
+    top: -10px;
+    left: 30px;
+    z-index: 9;
+}
+aside.segment.gallery ul.slides li.slide:nth-child(3) a img {
+    top: -20px;
+    left: 40px;
+    z-index: 8;
+}
+
+/*
+h2 {
+    font-weight: 300;
+    font-size: 1.75em;
+    margin: 10px 0 40px 0;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 1.45em;
+    margin: 0 0 10px 0;
+}
+
+h6 {
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 1;
+}
+*/
+
+
+
+/*
+
+<article class="h-entry story" id="post-6143">
+  <figure class="attach">
+    <img class="src" src="http://micagraphicdesign.org/wp-content/uploads/2013/07/396532_10150510187335678_494321673_n-1-470x317.jpg" alt="Erin &amp; Kristen Bender" width="1280">
+    <figcaption class="caption">
+      Erin &amp; Kristen Bender, 2004
+    </figcaption>
+  </figure> <!-- /.attach -->
+
+  <div class="content">
+    <header class="header">
+      <h1 class="p-name heading">Alumni Profile: Erin &amp; Kristin Bender</h1>
+      <div class="meta">
+        <p class="date">Oct 14 2014 08:39 PM</p>
+      </div>
+      <nav class="categories">
+        <a href="#" class="category">Interview</a>
+      </nav>
+      <nav class="tags">
+        <a href="#" class="tag">Alumni</a>
+      </nav>
+      <div class="byline"><em class="story">Interview by:</em> <a class="link" href="#heather">Heather Kohlberger</a></div>
+    </header> <!-- /.header -->
+
+      <aside class="segment gallery">
+        <ul class="slides">
+          <li class="slide"><a href="http://lorempixel.com/1000/1000/abstract/1" data-rel="gallery" class="link lightbox"><img src="http://lorempixel.com/500/500/abstract/1" alt="" class="src"></a></li>
+          <li class="slide"><a href="http://lorempixel.com/1000/1000/abstract/2" data-rel="gallery" class="link lightbox"><img src="http://lorempixel.com/500/500/abstract/2" alt="" class="src"></a></li>
+          <li class="slide"><a href="http://lorempixel.com/1000/1000/abstract/3" data-rel="gallery" class="link lightbox"><img src="http://lorempixel.com/500/500/abstract/3" alt="" class="src"></a></li>
+          <li class="slide"><a href="http://lorempixel.com/1000/1000/abstract/4" data-rel="gallery" class="link lightbox"><img src="http://lorempixel.com/500/500/abstract/4" alt="" class="src"></a></li>
+          <li class="slide"><a href="http://lorempixel.com/1000/1000/abstract/5" data-rel="gallery" class="link lightbox"><img src="http://lorempixel.com/500/500/abstract/5" alt="" class="src"></a></li>
+          <li class="slide"><a href="http://lorempixel.com/1000/1000/abstract/6" data-rel="gallery" class="link lightbox"><img src="http://lorempixel.com/500/500/abstract/6" alt="" class="src"></a></li>
+        </ul>
+      </aside>
+
+
+      <p>
+        <strong>
+          Looking back */
