@@ -27,12 +27,19 @@ $(function () {
     //move view all event into the tags section
 
     
+    
     $('td.day').on('click', '.link.day',function (event) {    
+        var $parent = $(this).parent();
         event.preventDefault();
-        $('.mini.cal.ui').find('.active').removeClass('active');
         
-        $(this).parent().toggleClass('clicked');
-        $(this).siblings('.eventLinkCon').addClass('active');
+        if ($parent.hasClass('clicked')) {
+            $parent.removeClass('clicked');
+        } else {
+            $parent.addClass('clicked');
+            $('.mini.cal.ui').find('.active').removeClass('active');
+        }
+        
+        $(this).siblings('.eventLinkCon').toggleClass('active');
         //THESE ARE NOT WORKING!!!
         
 //        if ($('.eventLinkCon').hasClass('active')) {
