@@ -1,6 +1,31 @@
 // Shortcut for
 // $(document.ready(function (){});
 $(function () {
+    
+    
+    $('header.masthead').before('<div class="mastheadBefore" />');
+    $('.mastheadBefore').append('<h1>MICA GD </h1>');
+    $('header.masthead').after('<div class="mastheadAfter" />');
+    
+    $('li.slide img').each(function (){
+        $(this).wrap('<div class="liIMG" />');
+        var bgURL = $(this).attr('src');
+        $('.liIMG').css('background-image', 'url(bgURL)');
+        console.log($(this).attr("src"));
+        $(this).hide();
+    });
+    //THIS IS NOT WORKING!!
+    
+    
+    
+    $('.navigation .dropdown').on('click', function(){
+        $('.navigation .dropdown.content').toggleClass('active');
+    });
+    $('.utility .dropdown').on('click', function(){
+        $('.utility .dropdown.content').toggleClass('active');
+    });
+    
+    
     $('.h-entry.story').find('.segment.gallery').append('<button class="reveal gallery">See the Gallery</button>');
     $('.h-entry.story').on('click', '.reveal.gallery', function () {
         $(this).parent().addClass('expanded');
@@ -9,7 +34,8 @@ $(function () {
     });
 
     
-    $('h1.page.heading').hide();
+//    $('h1.page.heading').hide();
+    $('h1.page.heading').wrap('<div class="h1Wrapper" />');
 
     $('nav.social ul.menu li.item a.link').empty();
     //remove the text of those social icons
@@ -17,7 +43,7 @@ $(function () {
     $('input#mce-EMAIL').attr( 'placeholder', 'Your email address' ).attr('spellcheck', 'false');
     //add attr to the email <input>
     
-    $('nav.tags.menus.segment h2.heading').html('Tags');
+//    $('nav.tags.menus.segment h2.heading').html('Tags');
     //change the Interests into tags
     
     $('nav.formats.menus ul.menu li.item').detach().prependTo('nav.tags.menus ul.menu');
@@ -38,16 +64,8 @@ $(function () {
             $parent.addClass('clicked');
             $('.mini.cal.ui').find('.active').removeClass('active');
         }
-        
         $(this).siblings('.eventLinkCon').toggleClass('active');
-        //THESE ARE NOT WORKING!!!
-        
-//        if ($('.eventLinkCon').hasClass('active')) {
-//            $(this).parent('td.event.day').click(function() {
-//                $('.eventLinkCon').removeClass('active');
-//                console.log('sdsdssss');
-//            }); 
-//        };
+
         
 
     }).each(function (i) {
@@ -67,7 +85,6 @@ $(function () {
     
     $('.mini.cal.ui').on('mouseleave', function() {
         $('.eventLinkCon').removeClass('active');
-        console.log('sfuhskdf');
     });
     
     
@@ -77,4 +94,41 @@ $(function () {
     $('aside.profiles .profile.card .content li.item:first-child a').text('Website');
     //remove the text of those social networks
 
+    
+    
+    $('.masthead').hide();
+
+    
+    $('.mastheadBefore').on('click', function(){
+        $('.masthead').show();
+        $(this).css('padding', '0 0 0 270px');
+    });
+    
+    
+    
+    
+    
+
+//    $('aside.segment.gallery li a').nivoLightbox();
+//        $('a').nivoLightbox();
+
+    
+    
+    
+//    <a href="img/angles-in-atrium.jpg" data-lightbox-gallery="gallery1">
+//    <img src="img/angles-in-atrium.jpg" alt="" />
+//</a>
+//<a href="img/brown-southeast-vertex.jpg" data-lightbox-gallery="gallery1">
+//    <img src="img/brown-southeast-vertex.jpg" alt="" />
+//</a>
+//<a href="img/Unknown.jpeg" data-lightbox-gallery="gallery1">
+//    <img src="img/Unknown.jpeg" alt="" />
+//</a>
+    
+    
+    
+    
+    
+    
+    
 });
