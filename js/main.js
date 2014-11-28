@@ -110,14 +110,28 @@ $(function () {
 //        $(this).css('padding', '0 0 0 270px');
     });
     
-$( '.allNav' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
-    var e0 = e.originalEvent,
-        delta = e0.wheelDelta || -e0.detail;
+//$( '.allNav' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
+//    var e0 = e.originalEvent,
+//        delta = e0.wheelDelta || -e0.detail;
+//    
+//    this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+//    e.preventDefault();
+//});
     
-    this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-    e.preventDefault();
-});
-    
+$.fn.isolatedScroll = function() {
+    this.bind('mousewheel DOMMouseScroll', function (e) {
+        var delta = e.wheelDelta || (e.originalEvent && e.originalEvent.wheelDelta) || -e.detail,
+            bottomOverflow = this.scrollTop + $(this).outerHeight() - this.scrollHeight >= 0,
+            topOverflow = this.scrollTop <= 0;
+
+        if ((delta < 0 && bottomOverflow) || (delta > 0 && topOverflow)) {
+            e.preventDefault();
+        }
+    });
+    return this;
+};
+
+$('.allNav').isolatedScroll();
     
     
     
