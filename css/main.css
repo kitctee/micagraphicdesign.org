@@ -71,27 +71,42 @@ ul, li {
     position: fixed;
     bottom: 0;
     left: -250px;
-/*    left: 0;*/
     width: 250px;
     height: 100%;
     overflow: hidden;
-    z-index: 10000;
     background-color: #555;
     padding: 42px 0 42px;
+    z-index: 10000;
     -webkit-transition: all 300ms ease;
        -moz-transition: all 300ms ease;
          -o-transition: all 300ms ease;
             transition: all 300ms ease;
 }
+.masthead.active {
+    left: 0;
+}
+.mastheadBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-transition: all 300ms ease;
+       -moz-transition: all 300ms ease;
+         -o-transition: all 300ms ease;
+            transition: all 300ms ease;
+}
+.mastheadBg.active {
+    background-color: rgba(0, 0, 0, 0.25);
+}
 .allNav {
     height: calc(100vh - 84px);
     margin: 0 0 0;
-/*    background-color: lime;*/
     overflow: scroll;
-}
-.masthead.active {
-    left: 0;
-
+     -webkit-overflow-scrolling: touch;
 }
 .mastheadBefore {
     position: fixed;
@@ -99,7 +114,7 @@ ul, li {
     right: 0;
     width: 100%;
     height: 52px;
-    z-index: 999;
+    z-index: 10000000;
     font-size: 18px;
     line-height: 52px;
     font-weight: 400;
@@ -188,19 +203,10 @@ nav.social {
     overflow: auto;
     position: fixed;
     left: 0;
-    bottom: -40px;
+    bottom: 0;
     border-top: 2px solid #333;
     padding: 0 0 0 25px;
     z-index: 10000;
-    -webkit-transition: all 300ms ease;
-       -moz-transition: all 300ms ease;
-         -o-transition: all 300ms ease;
-            transition: all 300ms ease;
-    -webkit-transition-delay: 300ms;
-            transition-delay: 300ms;
-}
-nav.social.active {
-    bottom: 0;
 }
 nav.social ul.menu li.item {
     width: 40px;
@@ -291,11 +297,15 @@ nav.social ul.menu li.item:hover {
 /*>>>*/
 main.page {
     width: 100%;
-/*    width: calc(100% - 250px);*/
-/*    float: right;*/
     margin: auto;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    -webkit-transition: all 300ms ease;
+       -moz-transition: all 300ms ease;
+         -o-transition: all 300ms ease;
+            transition: all 300ms ease;
 }
 .main {
     width: 100%;

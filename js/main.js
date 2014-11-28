@@ -9,7 +9,9 @@ $(function () {
     $('header.masthead').before('<div class="mastheadBefore" />');
     $('.mastheadBefore').append('<h1>MICA GD </h1>');
     $('header.masthead').after('<div class="mastheadAfter" />');
-    
+    $('header.masthead').after('<div class="mastheadBg" />');
+
+
 //    $('li.slide img').each(function (){
 //        $(this).wrap('<div class="liIMG" />');
 //        var bgURL = $(this).attr('src');
@@ -103,12 +105,18 @@ $(function () {
     //remove the text of those social networks
 
 
-    
     $('.mastheadBefore').on('click', function(){
-        $('.masthead, nav.social').toggleClass('active');
-        $(this).css('padding', '0 0 0 270px');
+        $('.masthead, .mastheadBg').toggleClass('active');
+//        $(this).css('padding', '0 0 0 270px');
     });
     
+$( '.allNav' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
+    var e0 = e.originalEvent,
+        delta = e0.wheelDelta || -e0.detail;
+    
+    this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+    e.preventDefault();
+});
     
     
     
