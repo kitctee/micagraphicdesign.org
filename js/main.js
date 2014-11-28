@@ -3,6 +3,9 @@
 $(function () {
     
     
+    $('.brand').detach().prependTo('.shim').html('MICA GD');
+    $('.masthead').children().wrapAll('<div class="allNav" />');
+    
     $('header.masthead').before('<div class="mastheadBefore" />');
     $('.mastheadBefore').append('<h1>MICA GD </h1>');
     $('header.masthead').after('<div class="mastheadAfter" />');
@@ -99,13 +102,10 @@ $(function () {
     $('aside.profiles .profile.card .content li.item:first-child a').text('Website');
     //remove the text of those social networks
 
-    
-    
-//    $('.masthead').hide();
 
     
     $('.mastheadBefore').on('click', function(){
-        $('.masthead').toggleClass('active');
+        $('.masthead, nav.social').toggleClass('active');
         $(this).css('padding', '0 0 0 270px');
     });
     

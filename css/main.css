@@ -71,9 +71,10 @@ ul, li {
     position: fixed;
     bottom: 0;
     left: -250px;
+/*    left: 0;*/
     width: 250px;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     z-index: 10000;
     background-color: #555;
     padding: 42px 0 42px;
@@ -81,6 +82,12 @@ ul, li {
        -moz-transition: all 300ms ease;
          -o-transition: all 300ms ease;
             transition: all 300ms ease;
+}
+.allNav {
+    height: calc(100vh - 84px);
+    margin: 0 0 0;
+/*    background-color: lime;*/
+    overflow: scroll;
 }
 .masthead.active {
     left: 0;
@@ -100,7 +107,15 @@ ul, li {
     padding: 0 0 0 20px;
 }
 .brand {
-    display: none;
+/*    display: none;*/
+    position: absolute;
+    top: -50px;
+    font-size: 8em;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
 }
 
 /* =============================================================================
@@ -169,13 +184,23 @@ ul, li {
 }
 nav.social {
     background-color: #333;
-    width: 100%;
+    width: 250px;
     overflow: auto;
     position: fixed;
-    bottom: 0;
+    left: 0;
+    bottom: -40px;
     border-top: 2px solid #333;
     padding: 0 0 0 25px;
     z-index: 10000;
+    -webkit-transition: all 300ms ease;
+       -moz-transition: all 300ms ease;
+         -o-transition: all 300ms ease;
+            transition: all 300ms ease;
+    -webkit-transition-delay: 300ms;
+            transition-delay: 300ms;
+}
+nav.social.active {
+    bottom: 0;
 }
 nav.social ul.menu li.item {
     width: 40px;
@@ -266,6 +291,8 @@ nav.social ul.menu li.item:hover {
 /*>>>*/
 main.page {
     width: 100%;
+/*    width: calc(100% - 250px);*/
+/*    float: right;*/
     margin: auto;
     overflow: hidden;
     position: relative;
@@ -783,10 +810,11 @@ section.spotify .item.playlist .header h1.heading {
 }
 section.spotify .item.playlist .byline {
     margin: 10px 0 20px;
+    font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 }
 section.spotify .item.playlist .byline em.type.playlist {
     font-size: 2em;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.5;
 }
 section.spotify .item.playlist .byline em.type.playlist a {
