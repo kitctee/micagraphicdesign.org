@@ -4,10 +4,13 @@ $(function () {
     
     
     $('.brand').detach().prependTo('.shim').html('MICA GD');
-    $('.masthead').children().wrapAll('<div class="allNav" />');
+    $('form[role="search"]').detach().prependTo('.shim');
+    $('nav.social.menus').detach().prependTo('.shim');
+
     
-    $('header.masthead').before('<div class="mastheadBefore" />');
-    $('.mastheadBefore').append('<h1>MICA GD </h1>');
+    
+    $('header.masthead').before('<div class="mastheadToggle" />');
+    $('.mastheadToggle').append('<h1><span>&#9776;</span> Menu</h1>');
     $('header.masthead').after('<div class="mastheadAfter" />');
     $('header.masthead').after('<div class="mastheadBg" />');
 
@@ -105,9 +108,15 @@ $(function () {
     //remove the text of those social networks
 
 
-    $('.mastheadBefore').on('click', function(){
-        $('.masthead, .mastheadBg').toggleClass('active');
+    $('.mastheadToggle').on('click', function(){
+        $('.masthead, nav.social').toggleClass('active');
 //        $(this).css('padding', '0 0 0 270px');
+    });
+    
+    
+    
+    $('main, .main').on('click', function(){
+        $('.masthead, nav.social').removeClass('active');
     });
     
 //$( '.allNav' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
@@ -118,21 +127,21 @@ $(function () {
 //    e.preventDefault();
 //});
     
-$.fn.isolatedScroll = function() {
-    this.bind('mousewheel DOMMouseScroll', function (e) {
-        var delta = e.wheelDelta || (e.originalEvent && e.originalEvent.wheelDelta) || -e.detail,
-            bottomOverflow = this.scrollTop + $(this).outerHeight() - this.scrollHeight >= 0,
-            topOverflow = this.scrollTop <= 0;
-
-        if ((delta < 0 && bottomOverflow) || (delta > 0 && topOverflow)) {
-            e.preventDefault();
-        }
-    });
-    return this;
-};
-
-$('.allNav').isolatedScroll();
-    
+//$.fn.isolatedScroll = function() {
+//    this.bind('mousewheel DOMMouseScroll', function (e) {
+//        var delta = e.wheelDelta || (e.originalEvent && e.originalEvent.wheelDelta) || -e.detail,
+//            bottomOverflow = this.scrollTop + $(this).outerHeight() - this.scrollHeight >= 0,
+//            topOverflow = this.scrollTop <= 0;
+//
+//        if ((delta < 0 && bottomOverflow) || (delta > 0 && topOverflow)) {
+//            e.preventDefault();
+//        }
+//    });
+//    return this;
+//};
+//
+//$('.allNav').isolatedScroll();
+//    
     
     
 
