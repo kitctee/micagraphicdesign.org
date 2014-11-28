@@ -291,9 +291,11 @@ main.page {
 }
 .main {
     width: 100%;
-    padding: 110px 125px 50px;
+    max-width: 1200px;
+    padding: 110px 40px 50px;
     overflow: hidden;
     text-align: center;
+    margin: auto;
 }
 .lede.news.ui,
 .items.posts.ui,
@@ -367,6 +369,7 @@ section.gallery ul.slides li.slide img {
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
 }
+
 .main .items.posts.ui .item.post .content,
 .main .items.events.ui .item.event .content,
 .event.item.teaser .body {
@@ -542,12 +545,15 @@ aside.profiles {
     width: 150px;
     padding: 0 0 0 10px;
     overflow: hidden;
+    text-align: left;
 }
 aside.profiles .profile.card {
     overflow: hidden;
     display: inline-block;
     float: left;
-    margin: 0 0 30px;
+}
+aside.profiles .profile.card + * {
+    margin: 30px 0 0;
 }
 aside.profiles .profile.card figure.attach {
     width: 100px;
@@ -574,14 +580,12 @@ aside.profiles .profile.card .content {
 }
 aside.profiles .profile.card .content p.heading {
     width: 100%;
-    background-color: #fff;
     line-height: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1.25em;
     font-weight: 600;
-    margin: 5px 0 0 0;
 }
 aside.profiles .profile.card .content ul.link.list {
     font-size: 0.875em;
@@ -1171,7 +1175,7 @@ footer.footer {
 .footer nav.departments.menus ul li {
     float: left;
     font-size: 0.875em;
-    line-height: 42px;
+    line-height: 50px;
     margin: 0 10px;
     -webkit-transition: all 400ms ease;
        -moz-transition: all 400ms ease;
@@ -1184,7 +1188,7 @@ footer.footer {
 .footer .legal {
     font-size: 0.875em;
     float: right;
-    line-height: 42px;
+    line-height: 50px;
     margin: 0 10px;
 }
 
@@ -1195,19 +1199,21 @@ footer.footer {
 @media only screen and (max-width: 1024px) {
 
     .main {    
-        width: 92%;
+        width: 75%;
         margin: auto;
-        padding: 70px 0 50px;
+        padding: 110px 0 50px;
     }
 
     .sub {
         clear: both;
         width: 100%;
         padding: 0 !important;
-/*        display: none;*/
     }
 }
 @media only screen and (max-width: 768px) {
+    .main {    
+        width: 85%;
+    }
     .post .copy p,
     .event .copy p {
         display: none;
@@ -1261,9 +1267,67 @@ footer.footer {
         width: 100px;
     }
     
+    
+    
+    
+    
+    
+    
+    
+
+
+    aside.profiles {
+        position: relative;
+        width: 100%;
+        margin: 20px 0 0 0;
+        padding: 10px 15px;
+        background-color: #fafafa;
+        border: 2px solid #ddd;
+    }
+    aside.profiles .profile.card {
+        overflow: hidden;
+        display: inline-block;
+        clear: both;
+    }
+    aside.profiles .profile.card + * {
+        margin: 10px 0 0;
+    }
+    aside.profiles .profile.card figure.attach {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        display: inline-block;
+        float: left;
+    }
+    aside.profiles figure.attach img {
+        width: 50px;
+        height: 50px;
+    }
+    aside.profiles .profile.card .content {
+        padding: 0 0 0 15px;
+        width: calc(100% - 50px);
+    }
+
+    aside.profiles .profile.card .content li.item {
+        display: none;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
 @media only screen and (max-width: 640px) {
+    
+    .main {    
+        width: 90%;
+    }    
+    
     .item.post .attach,
     .item.event .attach,
     li.event.item.teaser .attach {
@@ -1277,7 +1341,155 @@ footer.footer {
     padding: 20px 0 0 0;
     width: 100%;
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+article.h-entry.story .content .header h1 {
+    font-size: 2.5em;
+}
+article.h-entry.story .content .meta p.date {
+    font-size: 1.5em;
+}
+
+    
+aside.profiles .profile.card .content p.heading {
+    font-size: 1em;
+}
+aside.profiles .profile.card .content ul.link.list {
+    font-size: 0.875em;
+}
+    
+    
+    
+article.h-entry.story .content .body p {
+    font-size: 1.0875rem;
+    line-height: 1.75;
+    margin: 0 0 0.75em;
+}
+article.h-entry.story .content .body p strong {
+    font-size: 1.25rem;
+    padding: 20px 0 0;
+}
+
+
+footer.footer {
+    padding: 10px 10px 40px;
+}
+.footer nav.departments.menus ul li {
+    float: none;
+    display: inline-block;
+    font-size: 1.25em;
+}
+.footer .legal {
+    float: none;
+    line-height: 30px;
+    color: #777;
+}
+    
+.brand {
+    position: absolute;
+    top: -0px;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+    background-color: #333;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 @media only screen and (max-width: 480px) {
 
+    
+    
+    
+    
+    
+
+    .item.post .attach,
+    .item.event .attach,
+    li.event.item.teaser .attach {
+        height: 80px;
+        width: 80px;
+    }
+    .post.item + *,
+    .event.item + *,
+    li.event.item.teaser + * {
+        border-top: 1px solid #ddd;
+    }
+    
+    .content .footer nav.categories,
+    .content .footer nav.tags {
+        margin-top: 10px;
+    }
+    
+    
+    
+.main .items.posts.ui .item.post .content,
+.main .items.events.ui .item.event .content,
+.event.item.teaser .body {
+    width: calc(100% - 80px);
+    padding-left: 20px;
+}
+.event.item.teaser .body {
+    float: left;
+
+}
+.post h2.heading,
+.event h2.heading,
+.event.item.teaser h2.heading,
+section.gallery ul.slides li.slide .caption p.title {
+    color: #333;
+    font-size: 1.25em;
+    line-height: 1;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+}
+.lede .content .header h2.heading {
+    color: #333;
+    font-size: 2.25em;
+    line-height: 1;
+    font-weight: 700;
+    margin: 0 0 3px 0;
+}
+.post .meta p.date,
+.post .meta p.location,
+.event .meta p.date,
+.event .meta p.location,
+.byline,
+.lede .content .meta .date,
+.lede .content .meta .location,
+.event.item.teaser .meta p.date,
+.event.item.teaser .meta p.location {
+    font-size: 1.0075rem;
+    line-height: 1.25;
+    font-family: 'Crete Round', serif;
+}
+
+    
+    
+    
+    
+    
+    
+    
 }
