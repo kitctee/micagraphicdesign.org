@@ -7,13 +7,13 @@ $(function () {
     $('.mastheadBefore').append('<h1>MICA GD </h1>');
     $('header.masthead').after('<div class="mastheadAfter" />');
     
-    $('li.slide img').each(function (){
-        $(this).wrap('<div class="liIMG" />');
-        var bgURL = $(this).attr('src');
-        $('.liIMG').css('background-image', 'url(bgURL)');
-        console.log($(this).attr("src"));
-        $(this).hide();
-    });
+//    $('li.slide img').each(function (){
+//        $(this).wrap('<div class="liIMG" />');
+//        var bgURL = $(this).attr('src');
+//        $('.liIMG').css('background-image', 'url(bgURL)');
+//        console.log($(this).attr("src"));
+//        $(this).hide();
+//    });
     //THIS IS NOT WORKING!!
     
     
@@ -34,8 +34,7 @@ $(function () {
     });
 
     
-//    $('h1.page.heading').hide();
-    $('h1.page.heading').wrap('<div class="h1Wrapper" />');
+
 
     $('nav.social ul.menu li.item a.link').empty();
     //remove the text of those social icons
@@ -45,6 +44,12 @@ $(function () {
     
 //    $('nav.tags.menus.segment h2.heading').html('Tags');
     //change the Interests into tags
+    
+    $('nav.months.menu.ui a.prev.link.item').html('&#9664;');
+    $('nav.months.menu.ui a.next.link.item').html('&#9654;');
+    //change text into arrow
+
+    
     
     $('nav.formats.menus ul.menu li.item').detach().prependTo('nav.tags.menus ul.menu');
     //move event formats link to the tags section
@@ -71,7 +76,7 @@ $(function () {
     }).each(function (i) {
         var eventDiv = $('<div class="eventLinkCon" />');
         var links = $(this).find('.event.link');
-        var width = links.length < 10 ? links.length * 7 : 100;
+        var width = links.length < 10 ? links.length * 4 : 100;
         var dotSpan = $('<span />', { class: 'eventDot', style: 'width:' + width + '%;'});
         
         eventDiv.append(links);
@@ -96,11 +101,11 @@ $(function () {
 
     
     
-    $('.masthead').hide();
+//    $('.masthead').hide();
 
     
     $('.mastheadBefore').on('click', function(){
-        $('.masthead').show();
+        $('.masthead').toggleClass('active');
         $(this).css('padding', '0 0 0 270px');
     });
     
