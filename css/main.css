@@ -56,13 +56,6 @@ ul, li {
     list-style-type: none;
 }
 
-/*
-    -webkit-transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25); 
-       -moz-transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25); 
-         -o-transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25); 
-            transition: all 300ms cubic-bezier(0.4, 0.15, 0.17, 1.25);
-*/
-
 /* =============================================================================
    HEADER navigation & utility & social menu
    ========================================================================== */
@@ -439,10 +432,7 @@ section.gallery ul.slides li.slide img {
 .event.item.teaser .body {
     overflow: auto;
     padding-left: 30px;
-}
-.event.item.teaser .body {
     float: left;
-
 }
 .post h2.heading,
 .event h2.heading,
@@ -474,7 +464,6 @@ section.gallery ul.slides li.slide .caption p.title {
     line-height: 1.25;
     font-family: 'Crete Round', serif;
 }
-
 
 section.gallery ul.slides li.slide {
     width: 31%;
@@ -628,7 +617,6 @@ aside.profiles .profile.card .content {
     display: inline-block;
     width: 150px;
     overflow: hidden;
-
 }
 aside.profiles .profile.card .content p.heading {
     width: 100%;
@@ -653,8 +641,6 @@ aside.profiles .profile.card .content li.item:first-child {
 }
 aside.profiles .profile.card .content li.item:nth-child(5n + 2) {
     margin-left: -5px;
-}
-aside.profiles .profile.card .content li.item a {
 }
 aside.profiles .profile.card .content li.item a i.icon {
     width: 1.875em;
@@ -708,15 +694,11 @@ aside.segment.gallery {
 aside.segment.gallery ul.slides {
     padding: 0 0 0 20px;
 }
-aside.segment.gallery ul.slides li.slide {
-}
-aside.segment.gallery ul.slides li.slide a {
-}
 aside.segment.gallery ul.slides li.slide a img {
     width: 70%;
     position: absolute;
     top: 0;
-    left: 20px;
+    right: 20px;
     z-index: 10;
     border: 4px solid #333;
     -webkit-filter: grayscale(100%);
@@ -728,31 +710,15 @@ aside.segment.gallery ul.slides li.slide a img {
 }
 aside.segment.gallery ul.slides li.slide:nth-child(2) a img {
     top: -10px;
-    left: 30px;
+    right: 10px;
     z-index: 9;
 }
 aside.segment.gallery ul.slides li.slide:nth-child(3) a img {
     top: -20px;
-    left: 40px;
+    right: 0;
     z-index: 8;
 }
 
-aside.segment.gallery:hover ul.slides li.slide a img {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-    top: -30px;
-    left: -20px;
-}
-aside.segment.gallery:hover ul.slides li.slide:nth-child(2) a img {
-    top: -50px;
-    left: 60px;
-    z-index: 9;
-}
-aside.segment.gallery:hover ul.slides li.slide:nth-child(3) a img {
-    top: -10px;
-    left: 80px;
-    z-index: 8;
-}
 aside.segment.gallery .reveal.gallery {
     margin: 70% 0 0 20px;
 }
