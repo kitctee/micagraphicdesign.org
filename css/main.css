@@ -67,6 +67,10 @@ ul, li {
    HEADER navigation & utility & social menu
    ========================================================================== */
 
+.mastheadWrap {
+    width: 100%;
+    height: 50px;
+}
 .masthead {
     position: absolute;
     top: 0;
@@ -76,11 +80,13 @@ ul, li {
     overflow: scroll;
     background-color: #666;
     z-index: 10000;
-    padding: 50px 0 10px 0;
+    margin: 50px 0 0 0;
+    padding: 0 0 5px 0;
 }
 nav.social,
 .masthead {
     opacity: 0;
+    pointer-events: none;
     -webkit-transition: all 200ms ease;
        -moz-transition: all 200ms ease;
          -o-transition: all 200ms ease;
@@ -91,6 +97,7 @@ nav.social,
 nav.social.active,
 .masthead.active {
     opacity: 1;
+    pointer-events: auto;
     -webkit-transform: translateY(0);
             transform: translateY(0);
 }
@@ -125,7 +132,13 @@ nav.social.active,
     text-transform: uppercase;
     text-align: center;
     width: 100%;
-    z-index: 9999;
+    z-index: 10002;
+    pointer-events: none;
+    -webkit-transform: translateZ(0);
+       -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+         -o-transform: translateZ(0);
+            transform: translateZ(0);
 }
 
 .navigation ul.menu.level-1 li.item,
@@ -136,7 +149,7 @@ nav.social.active,
     text-decoration: none;
     color: rgba(255, 255, 255, 0.875);
     font-size: 1rem;
-    line-height: 3;
+    line-height: 50px;
     -webkit-transition: all 400ms ease;
        -moz-transition: all 400ms ease;
          -o-transition: all 400ms ease;
@@ -165,7 +178,7 @@ nav.social.active,
             transition: all 400ms ease;
 }
 .navigation ul li .dropdown.content.active {
-    height: 9rem;
+    height: 150px;
 }
 .utility ul.menu li .dropdown.content.active {
     height: 5.25rem;
@@ -193,23 +206,25 @@ nav.social {
     width: 100%;
     overflow: auto;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
     width: 50px;
-    padding: 50px 0 0 0;
+    margin: 50px 0 0 0;
     z-index: 10000;
 }
 nav.social ul.menu li.item {
-    width: 40px;
-    height: 40px;
+    display: block;
+    width: 50px;
+    height: 50px;
     overflow: hidden;
-    margin: 5px;
+    border: 5px solid #333;
+    margin: 0;
+    opacity: 0.75;
     position: relative;
     -webkit-transition: all 400ms ease;
        -moz-transition: all 400ms ease;
          -o-transition: all 400ms ease;
             transition: all 400ms ease;
-    opacity: 0.75;
 }
 nav.social ul.menu li.item:hover {
     background-color: rgba(106, 197, 183, 1);
@@ -248,11 +263,13 @@ nav.social ul.menu li.item:hover {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 10000;
     overflow: auto;
-    margin: 0 0 30px;
     width: 250px;
-/*    border-bottom: 2px solid #333;*/
+    -webkit-transition: all 200ms ease;
+       -moz-transition: all 200ms ease;
+         -o-transition: all 200ms ease;
+            transition: all 200ms ease;
 }
 .form input {
     width: 100%;
@@ -262,7 +279,7 @@ nav.social ul.menu li.item:hover {
     line-height: 30px;
     padding: 10px 20px;
     background-color: #333;
-    width: 70%;
+    width: 200px;
     float: left;
     color: #fff;
 }
@@ -273,10 +290,57 @@ nav.social ul.menu li.item:hover {
     border: none;
     font-size: 1.125rem;
     line-height: 50px;
-    font-weight: 600;
+    font-weight: 400;
     color: #fff;
-    width: 30%;
+    width: 50px;
     float: right;
+    position: relative;
+}
+.searchIconToggle {
+    display: none;
+    width: 250px;
+    height: 50px;
+    background-color: rgba(106, 197, 183, 1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    cursor: pointer;
+    border-left: 200px solid #333;
+}
+.searchIcon {
+    background-color: #fff;
+    border-radius: 100%;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 16px;
+    right: 19px;
+    pointer-events: none;
+    -webkit-transform: rotate(-45deg) scale(1.1);
+       -moz-transform: rotate(-45deg) scale(1.1);
+        -ms-transform: rotate(-45deg) scale(1.1);
+         -o-transform: rotate(-45deg) scale(1.1);
+            transform: rotate(-45deg) scale(1.1);
+}
+.searchIcon::before {
+    content: "";
+    background-color: rgba(106, 197, 183, 1);
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.searchIcon::after {
+    content: "";
+    background-color: #fff;
+    width: 2px;
+    height: 6px;
+    position: absolute;
+    top: 14px;
+    right: 6px;
 }
 
 /* =============================================================================
@@ -353,8 +417,8 @@ section.gallery ul.slides li.slide:hover img {
     width: 150px;
     float: left;
 }
-.post .attach img,
-.event .attach img,
+.posts .post .attach img,
+.events .event .attach img,
 .event.item.teaser .attach img,
 section.gallery ul.slides li.slide img {
     width: 100%;
@@ -411,15 +475,6 @@ section.gallery ul.slides li.slide .caption p.title {
     font-family: 'Crete Round', serif;
 }
 
-.liIMG {
-    width: 100%;
-    height: 240px;
-    background-color: #ddd;
-    background-image: url();
-    background-size: cover;
-    background-position: center;
-    margin: 0 0 5px 0;
-}
 
 section.gallery ul.slides li.slide {
     width: 31%;
@@ -437,7 +492,7 @@ section.gallery ul.slides li.slide .caption {
 .lede .content .meta .date {
     font-size: 1.5rem;
 }
-.byline {
+.byline em {
     color: #aaa;
     font-size: 0.875rem;
 }
@@ -531,11 +586,8 @@ article.h-entry.story .content .byline {
     margin: 40px 0 0;
     color: #aaa;
 }
-article.h-entry.story .content .byline em.story {
-}
 article.h-entry.story .content .byline a.link {
     color: rgba(106, 197, 183, 1);
-
 }
 
 
@@ -628,7 +680,7 @@ article.h-entry.story .content .body {
 article.h-entry.story .content .body p {
     font-weight: 400;
     font-size: 1.25rem;
-    line-height: 1.95;
+    line-height: 1.8;
     margin: 0 0 0.75em;
     font-family: 'PT Serif', serif;
 }
@@ -771,7 +823,6 @@ ul.slides {
 }
 .lede .attach img{
     width: 100%;
-/*    border: 8px solid #333;*/
 }
 .lede .content {
     float: left;
@@ -968,6 +1019,7 @@ table.mini.cal.ui {
     color: #333;
     table-layout: fixed;
     border-bottom: 5px solid rgba(106, 197, 183, 1);
+    position: relative;
 }
 table.mini.cal.ui caption {
     width: 100%;
@@ -1201,16 +1253,136 @@ footer.footer {
     .main {    
         width: 75%;
         margin: auto;
-        padding: 110px 0 50px;
+        padding: 70px 0 50px;
     }
-
     .sub {
         clear: both;
         width: 100%;
         padding: 0 !important;
     }
+    .mastheadWrap {
+        background-color: #333;
+    }   
+    .brand {
+        top: 0;
+        font-size: 30px;
+        line-height: 50px;
+        color: #fff;
+    }
+    .mastheadToggle h1 {
+        color: #333;
+        pointer-events: none;
+    }
+    
+    .form {
+        top: 50px;
+        background-color: #fff;
+        border: 5px solid #eee;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transform: translateY(-50px);
+                transform: translateY(-50px);
+    }
+    .form.active {
+        opacity: 1;
+        pointer-events: auto;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+    .form input {
+        background-color: #fff;
+        width: calc(100% - 50px);
+        color: #333;
+    }
+    .form button.control {
+        line-height: 40px;
+        border: 5px solid #fff;
+        width: 50px;
+    }
+    .searchIconToggle {
+        display: block;
+    }
+    
+    aside.profiles {
+        position: relative;
+        width: 700px;
+        margin: 20px auto 0;
+        padding: 10px 15px;
+        background-color: #fafafa;
+        border: 2px solid #ddd;
+    }
+    aside.profiles .profile.card {
+        overflow: hidden;
+        display: inline-block;
+        clear: both;
+    }
+    aside.profiles .profile.card + * {
+        margin: 10px 0 0;
+    }
+    aside.profiles .profile.card figure.attach {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        display: inline-block;
+        float: left;
+    }
+    aside.profiles figure.attach img {
+        width: 50px;
+        height: 50px;
+    }
+    aside.profiles .profile.card .content {
+        padding: 0 0 0 15px;
+        width: calc(100% - 50px);
+    }
+    aside.profiles .profile.card .content li.item {
+        display: none;
+    }
+
+    aside.segment.gallery {
+        position: relative;
+        right: 0;
+        width: 100%;
+        overflow: auto;
+    }
+    aside.segment.gallery ul.slides {
+        padding: 0;
+    }
+    aside.segment.gallery ul.slides li.slide a img {
+        width: 23.5%;
+        position: static;
+        float: left;
+        margin: 0 0 2% 0;
+    }
+    aside.segment.gallery ul.slides li.slide + * a img {
+        margin: 0 0 2% 2%;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(5n) a img {
+        margin: 0 0 2% 0;
+    }
+    aside.segment.gallery .reveal.gallery {
+        margin: 0;
+    }
+    
+    .lede.home.ui,
+    .lede.blog.ui,
+    .lede.news.ui,
+    .items.posts.ui,
+    .items.events.ui,
+    .h-entry.story .attach,
+    .h-entry.story header,
+    .h-entry.story .body,
+    .h-entry.story footer,
+    section.events,
+    section.gallery,
+    section.spotify {
+        width: 100%;
+        max-width: 700px;
+    }
+    
 }
+
 @media only screen and (max-width: 768px) {
+    
     .main {    
         width: 85%;
     }
@@ -1242,20 +1414,7 @@ footer.footer {
     .content .footer nav.tags {
         margin-top: 10px;
     }
-    .lede.home.ui,
-    .lede.blog.ui,
-    .lede.news.ui,
-    .items.posts.ui,
-    .items.events.ui,
-    .h-entry.story .attach,
-    .h-entry.story header,
-    .h-entry.story .body,
-    .h-entry.story footer,
-    section.events,
-    section.gallery,
-    section.spotify {
-        width: 100%;
-    }
+
     .subscribe.segment,
     .calendar.segment,
     nav.tags.menus.segment,
@@ -1266,67 +1425,33 @@ footer.footer {
         left: calc(50% - 50px);
         width: 100px;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-
-
     aside.profiles {
-        position: relative;
         width: 100%;
-        margin: 20px 0 0 0;
-        padding: 10px 15px;
-        background-color: #fafafa;
-        border: 2px solid #ddd;
     }
-    aside.profiles .profile.card {
-        overflow: hidden;
-        display: inline-block;
-        clear: both;
+    
+}
+
+@media only screen and (max-width: 640px) {
+    
+    .masthead {
+        width: calc(100% - 100px);
     }
-    aside.profiles .profile.card + * {
-        margin: 10px 0 0;
-    }
-    aside.profiles .profile.card figure.attach {
-        width: 50px;
-        height: 50px;
-        margin: 0;
-        display: inline-block;
-        float: left;
-    }
-    aside.profiles figure.attach img {
-        width: 50px;
-        height: 50px;
-    }
-    aside.profiles .profile.card .content {
-        padding: 0 0 0 15px;
+    .mastheadToggle {
         width: calc(100% - 50px);
     }
-
-    aside.profiles .profile.card .content li.item {
-        display: none;
+    .form {
+        width: 100%;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-}
-@media only screen and (max-width: 640px) {
+    .form input {
+        width: calc(100% - 120px);
+    }
+    .form button.control {
+        width: 120px;
+    }
     
     .main {    
         width: 90%;
-    }    
+    }
     
     .item.post .attach,
     .item.event .attach,
@@ -1336,94 +1461,62 @@ footer.footer {
         float: left;
         overflow: hidden;
     }
-.lede .content {
-    clear: both;
-    padding: 20px 0 0 0;
-    width: 100%;
-}
+    .lede .content {
+        clear: both;
+        padding: 20px 0 0 0;
+        width: 100%;
+    }
     
+    article.h-entry.story .content .header h1 {
+        font-size: 2.5em;
+    }
+    article.h-entry.story .content .meta p.date {
+        font-size: 1.5em;
+    }
+    aside.profiles .profile.card .content p.heading {
+        font-size: 1em;
+    }
+    aside.profiles .profile.card .content ul.link.list {
+        font-size: 0.875em;
+    }
+    article.h-entry.story .content .body p {
+        font-size: 1.0875rem;
+        line-height: 1.75;
+        margin: 0 0 0.75em;
+    }
+    article.h-entry.story .content .body p strong {
+        font-size: 1.25rem;
+        padding: 20px 0 0;
+    }
+
+    aside.segment.gallery ul.slides li.slide a img {
+        width: 32%;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(4n) a img {
+        margin: 0 0 2% 0;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(5n) a img {
+        margin: 0 0 2% 2%;
+    }
     
+    footer.footer {
+        padding: 20px 10px 40px;
+    }
+    .footer nav.departments.menus ul li {
+        float: none;
+        display: inline-block;
+        font-size: 1.125em;
+        line-height: 1;
+    }
+    .footer .legal {
+        float: none;
+        line-height: 30px;
+        color: #777;
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-article.h-entry.story .content .header h1 {
-    font-size: 2.5em;
-}
-article.h-entry.story .content .meta p.date {
-    font-size: 1.5em;
 }
 
-    
-aside.profiles .profile.card .content p.heading {
-    font-size: 1em;
-}
-aside.profiles .profile.card .content ul.link.list {
-    font-size: 0.875em;
-}
-    
-    
-    
-article.h-entry.story .content .body p {
-    font-size: 1.0875rem;
-    line-height: 1.75;
-    margin: 0 0 0.75em;
-}
-article.h-entry.story .content .body p strong {
-    font-size: 1.25rem;
-    padding: 20px 0 0;
-}
-
-
-footer.footer {
-    padding: 10px 10px 40px;
-}
-.footer nav.departments.menus ul li {
-    float: none;
-    display: inline-block;
-    font-size: 1.25em;
-}
-.footer .legal {
-    float: none;
-    line-height: 30px;
-    color: #777;
-}
-    
-.brand {
-    position: absolute;
-    top: -0px;
-    font-size: 50px;
-    font-weight: 800;
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
-    width: 100%;
-    z-index: 9999;
-    background-color: #333;
-}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
 @media only screen and (max-width: 480px) {
-
-    
-    
-    
-    
-    
 
     .item.post .attach,
     .item.event .attach,
@@ -1436,60 +1529,99 @@ footer.footer {
     li.event.item.teaser + * {
         border-top: 1px solid #ddd;
     }
-    
     .content .footer nav.categories,
     .content .footer nav.tags {
         margin-top: 10px;
     }
-    
-    
-    
-.main .items.posts.ui .item.post .content,
-.main .items.events.ui .item.event .content,
-.event.item.teaser .body {
-    width: calc(100% - 80px);
-    padding-left: 20px;
-}
-.event.item.teaser .body {
-    float: left;
+    .main .items.posts.ui .item.post .content,
+    .main .items.events.ui .item.event .content,
+    .event.item.teaser .body {
+        width: calc(100% - 80px);
+        padding-left: 20px;
+    }
+    .event.item.teaser .body {
+        float: left;
+    }
+    .post h2.heading,
+    .event h2.heading,
+    .event.item.teaser h2.heading,
+    section.gallery ul.slides li.slide .caption p.title {
+        color: #333;
+        font-size: 1.25em;
+        line-height: 1;
+        font-weight: 600;
+        margin: 0 0 3px 0;
+    }
+    .lede .content .header h2.heading {
+        color: #333;
+        font-size: 2.25em;
+        line-height: 1;
+        font-weight: 700;
+        margin: 0 0 3px 0;
+    }
+    .post .meta p.date,
+    .post .meta p.location,
+    .event .meta p.date,
+    .event .meta p.location,
+    .byline,
+    .lede .content .meta .date,
+    .lede .content .meta .location,
+    .event.item.teaser .meta p.date,
+    .event.item.teaser .meta p.location {
+        font-size: 1.0075rem;
+    }
 
-}
-.post h2.heading,
-.event h2.heading,
-.event.item.teaser h2.heading,
-section.gallery ul.slides li.slide .caption p.title {
-    color: #333;
-    font-size: 1.25em;
-    line-height: 1;
-    font-weight: 600;
-    margin: 0 0 3px 0;
-}
-.lede .content .header h2.heading {
-    color: #333;
-    font-size: 2.25em;
-    line-height: 1;
-    font-weight: 700;
-    margin: 0 0 3px 0;
-}
-.post .meta p.date,
-.post .meta p.location,
-.event .meta p.date,
-.event .meta p.location,
-.byline,
-.lede .content .meta .date,
-.lede .content .meta .location,
-.event.item.teaser .meta p.date,
-.event.item.teaser .meta p.location {
-    font-size: 1.0075rem;
-    line-height: 1.25;
-    font-family: 'Crete Round', serif;
+    aside.segment.gallery ul.slides li.slide a img {
+        width: 48%;
+        margin: 0 0 4% 0;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(5n) a img {
+        margin: 0 0 4% 0;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(2n) a img {
+        margin: 0 0 4% 4%;
+    }    
+    section.gallery ul.slides li.slide {
+        width: 48%;
+        margin: 10px 4% 10px 0;
+    }
+    section.gallery ul.slides li.slide:nth-child(3n) {
+        margin: 10px 4% 10px 0;
+    }
+    section.gallery ul.slides li.slide:nth-child(2n) {
+        margin: 10px 0 10px;
+    }
+    section.gallery ul.slides li.slide .caption {
+        margin: 10px 0 20px 0;
+    }    
+
+    section.spotify .item.playlist .header h1.heading {
+        font-size: 2em;
+    }
+    section.spotify .item.playlist .byline {
+        margin: 5px 0 20px;
+    }
+    section.spotify .item.playlist .byline em.type.playlist {
+        font-size: 1em;
+    }
+    section.spotify .item.playlist .copy {
+        margin: auto;
+        width: 100%;
+        padding: 0;
+    }
+    section.spotify .item.playlist .copy iframe {
+        width: 280px;
+        height: 360px;
+    }
+    
 }
 
-    
-    
-    
-    
-    
-    
-    
+.liIMG {
+    width: 100%;
+    height: 240px;
+    background-color: #ddd;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    margin: 0 0 5px 0;
 }

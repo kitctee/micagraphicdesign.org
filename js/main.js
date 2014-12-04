@@ -2,15 +2,14 @@
 // $(document.ready(function (){});
 $(function () {
     
-    
     $('.brand').detach().prependTo('.shim').html('MICA GD');
-    $('form[role="search"]').detach().prependTo('.shim');
+    $('form[role="search"]').detach().prependTo('.shim').after('<div class="searchIconToggle"><div class="searchIcon" /></div>');
+    $('button.control').html('&emsp;').append('<div class="searchIcon" />');
     $('nav.social.menus').detach().prependTo('.shim');
-
     
-    
+    $('header.masthead').wrap('<div class="mastheadWrap" />');    
     $('header.masthead').before('<div class="mastheadToggle" />');
-    $('.mastheadToggle').append('<h1><span>&#9776;</span> Menu</h1>');
+    $('.mastheadToggle').append('<span>&#9776;</span><h1>Menu</h1>');
     $('header.masthead').after('<div class="mastheadAfter" />');
     $('header.masthead').after('<div class="mastheadBg" />');
 
@@ -24,7 +23,15 @@ $(function () {
 //    });
     //THIS IS NOT WORKING!!
     
-    
+    $('.mastheadToggle').on('click', function(){
+        $('form[role="search"]').removeClass('active');
+        $('.masthead, nav.social').toggleClass('active');
+    });
+    $('.searchIconToggle').on('click', function(){
+        $('.masthead, nav.social').removeClass('active');
+        $('form[role="search"]').toggleClass('active');
+    });
+    //mobile menu & search toggle
     
     $('.navigation .dropdown').on('click', function(){
         $('.navigation .dropdown.content').toggleClass('active');
@@ -108,15 +115,13 @@ $(function () {
     //remove the text of those social networks
 
 
-    $('.mastheadToggle').on('click', function(){
-        $('.masthead, nav.social').toggleClass('active');
-//        $(this).css('padding', '0 0 0 270px');
-    });
+
     
     
     
     $('main, .main').on('click', function(){
         $('.masthead, nav.social').removeClass('active');
+        $('form[role="search"]').removeClass('active');
     });
     
 //$( '.allNav' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
