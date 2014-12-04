@@ -430,6 +430,7 @@ section.gallery ul.slides li.slide img {
 .main .items.posts.ui .item.post .content,
 .main .items.events.ui .item.event .content,
 .event.item.teaser .body {
+    width: calc(100% - 150px);
     overflow: auto;
     padding-left: 30px;
     float: left;
