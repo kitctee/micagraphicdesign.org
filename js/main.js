@@ -3,7 +3,7 @@
 $(function () {
     
     $('.brand').detach().prependTo('.shim').html('MICA GD');
-    $('form[role="search"]').detach().prependTo('.shim').after('<div class="searchIconToggle"><div class="searchIcon" /></div>');
+    $('form[role="search"]').detach().prependTo('.shim').after('<div class="searchIconToggle"><div class="searchIcon2" /></div>');
     $('button.control').html('&emsp;').append('<div class="searchIcon" />');
     $('nav.social.menus').detach().prependTo('.shim');
     
@@ -13,16 +13,14 @@ $(function () {
     $('header.masthead').after('<div class="mastheadAfter" />');
     $('header.masthead').after('<div class="mastheadBg" />');
 
+    $('.content .footer nav.tags').each(function() {
+        var $categories = $(this).prev();
+        if ($(this).children().length > 0) {
+            $(this).children().detach().appendTo($categories);
+        };
+    });
 
-//    $('li.slide img').each(function (){
-//        $(this).wrap('<div class="liIMG" />');
-//        var bgURL = $(this).attr('src');
-//        $('.liIMG').css('background-image', 'url(bgURL)');
-//        console.log($(this).attr("src"));
-//        $(this).hide();
-//    });
-    //THIS IS NOT WORKING!!
-    
+
     $('.mastheadToggle').on('click', function(){
         $('form[role="search"]').removeClass('active');
         $('.masthead, nav.social').toggleClass('active');
@@ -166,6 +164,14 @@ $(function () {
 //    <img src="img/Unknown.jpeg" alt="" />
 //</a>
     
+//    $('li.slide img').each(function (){
+//        $(this).wrap('<div class="liIMG" />');
+//        var bgURL = $(this).attr('src');
+//        $('.liIMG').css('background-image', 'url(bgURL)');
+//        console.log($(this).attr("src"));
+//        $(this).hide();
+//    });
+    //THIS IS NOT WORKING!!
     
     
     
