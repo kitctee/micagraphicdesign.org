@@ -475,6 +475,10 @@ section.gallery ul.slides li.slide img {
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
 }
+section.gallery ul.slides li.slide:hover img {
+    -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+}
 
 /* list */
 
@@ -671,6 +675,14 @@ article footer.footer .byline .card figure.attach img {
     border: 4px solid #333;
     -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
+    -webkit-transition: all 400ms ease;
+       -moz-transition: all 400ms ease;
+         -o-transition: all 400ms ease;
+            transition: all 400ms ease;
+}
+article footer.footer .byline .card figure.attach:hover img {
+    -webkit-filter: grayscale(0);
+            filter: grayscale(0);
 }
 article footer.footer .byline .card .content {
     clear: both;
@@ -821,6 +833,10 @@ aside.segment.gallery ul.slides li.slide a img {
          -o-transition: all 400ms ease;
             transition: all 400ms ease;
 }
+aside.segment.gallery:hover ul.slides li.slide a img {
+    -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+}
 aside.segment.gallery ul.slides li.slide:nth-child(2) a img {
     top: -10px;
     right: 10px;
@@ -832,7 +848,13 @@ aside.segment.gallery ul.slides li.slide:nth-child(3) a img {
     z-index: 8;
 }
 aside.segment.gallery .reveal.gallery {
-    margin: 70% 0 0 47px;
+    margin: 75% 0 0 47px;
+    border: 4px solid #333;
+    padding: 5px 8px;
+    background-color: #fff;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 600;
 }
 
 /* =============================================================================
@@ -906,17 +928,17 @@ section.spotify .item.playlist .header{
 }
 section.spotify .item.playlist .header h1.heading {
     font-weight: 700;
-    font-size: 4em;
+    font-size: 3.25em;
     line-height: 1.125;
 }
 section.spotify .item.playlist .byline {
-    margin: 10px 0 20px;
+    margin: 5px 0 30px;
     font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
 }
 section.spotify .item.playlist .byline em.type.playlist {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.25;
 }
 section.spotify .item.playlist .byline em.type.playlist a {
     font-size: 1em;
@@ -1333,7 +1355,7 @@ footer.footer {
     
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1160px) {
 
     .main {    
         width: 75%;
@@ -1428,6 +1450,9 @@ footer.footer {
         padding: 10px 15px;
         background-color: #fafafa;
         border: 2px solid #ddd;
+    }
+    aside.profiles .profile.card {
+        width: 100%;
     }
     aside.profiles .profile.card {
         overflow: hidden;
@@ -1747,14 +1772,3 @@ footer.footer {
     }
     
 }
-
-/*
-.liIMG {
-    width: 100%;
-    height: 240px;
-    background-color: #ddd;
-    background-image: url();
-    background-size: cover;
-    background-position: center;
-    margin: 0 0 5px 0;
-}*/
