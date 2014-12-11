@@ -96,15 +96,12 @@ $(function () {
     });
     
     $('.h-entry.story').find('.segment.gallery').append('<button class="reveal gallery">See the Gallery</button>');
+    
     $('.h-entry.story').on('click', '.reveal.gallery', function () {
-        console.log('dsd');
-        $('.segment.gallery ul.slides a').nivoLightbox();
+        $('.segment.gallery ul.slides a').attr('data-lightbox-gallery','gallery1').nivoLightbox().eq(0).click();
     });
-//    $('a').nivoLightbox({ effect: 'fade' });
 
-    $('.h-entry.story').find('.segment.gallery img').each(function() {
-//        $(this).css('border', '4px solid lime');
-    });
+
 
     
 });
