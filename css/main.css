@@ -1511,7 +1511,8 @@ footer.footer {
     aside.segment.gallery ul.slides li.slide + * a img {
         margin: 0 0 2% 2%;
     }
-    aside.segment.gallery ul.slides li.slide:nth-child(5n) a img {
+    aside.segment.gallery ul.slides li.slide:nth-child(4n+1) a img {
+        clear: both;
         margin: 0 0 2% 0;
     }
     aside.segment.gallery .reveal.gallery {
@@ -1691,6 +1692,12 @@ footer.footer {
         width: 48%;
         margin: 10px 4% 10px 0;
     }
+    aside.segment.gallery ul.slides li.slide:nth-child(4n+1) a img {
+        clear: none;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(3n+1) a img {
+        clear: both;
+    }
     section.gallery ul.slides li.slide:nth-child(3n) {
         margin: 10px 4% 10px 0;
     }
@@ -1747,6 +1754,13 @@ footer.footer {
     aside.segment.gallery ul.slides li.slide a img {
         width: 48%;
         margin: 0 0 4% 0;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(3n+1) a img,
+    aside.segment.gallery ul.slides li.slide:nth-child(4n+1) a img {
+        clear: none;
+    }
+    aside.segment.gallery ul.slides li.slide:nth-child(2n+1) a img {
+        clear: both;
     }
     aside.segment.gallery ul.slides li.slide:nth-child(5n) a img {
         margin: 0 0 4% 0;
